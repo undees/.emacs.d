@@ -51,8 +51,8 @@ EMACS=emacs
 # cedet-suite but separate semantic-, eieio- and speedbar-pathes set this
 # variable to empty.
 
-#CEDET=
-CEDET=c:/Programme/emacs-21/site-lisp/package-development/cedet
+CEDET=~/.emacs.d/cedet
+#CEDET=c:/Programme/emacs-21/site-lisp/package-development/cedet
 #CEDET=c:/Programme/emacs-21/site-lisp/multi-file-packages/cedet-1.0beta2b
 
 # -------- Compiling ECB with the semantic < 2.0 -------------------------
