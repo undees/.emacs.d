@@ -33,17 +33,22 @@
 (add-to-list 'load-path "~/.emacs.d/rails")
 (require 'rails)
 
-(when (and macosx-p (not aquamacs-p))
-  (setq mac-option-modifier 'meta)
-  (setq mac-command-modifier nil))
+(when macosx-p
+  (setq ecb-source-path (quote ("~/src")))
+  (when (not aquamacs-p)
+    (setq mac-option-modifier 'meta)
+    (setq mac-command-modifier nil)))
 
 (when mswindows-p
-  (setq exec-path (cons "C:/cygwin/bin" exec-path))
+  (setq ecb-source-path (quote ("e:/src")))
+  (setq rails-ruby-command "c:/ruby/bin/ruby.exe")
+  (setq exec-path (cons "c:/cygwin/bin" exec-path))
   (setq shell-file-name "bash")
   (setenv "SHELL" shell-file-name)
   (setq explicit-shell-file-name shell-file-name)
   (add-hook 'comint-output-filter-functions
-            'comint-strip-ctrl-m))
+            'comint-strip-ctrl-m)
+  (server-start))
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -51,7 +56,6 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(ecb-options-version "2.32")
- '(ecb-source-path (quote ("~/src")))
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
  '(ecb-tip-of-the-day nil))
 (custom-set-faces

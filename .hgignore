@@ -5,3 +5,4 @@ syntax: glob
 *~
 *-compile-script
 *-make-script
+server/server
