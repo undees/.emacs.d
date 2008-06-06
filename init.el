@@ -16,6 +16,8 @@
 (require 'linum)
 (linum-mode)
 
+(transient-mark-mode)
+
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-x\C-k" 'kill-region)
 
