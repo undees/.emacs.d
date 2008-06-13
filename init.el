@@ -1,11 +1,23 @@
+;;;; My personal quirks, encoded as Lisp
+
 (add-to-list 'load-path "~/.emacs.d")
+
+;;;; OS/Emacs sniffing
 
 (defvar mswindows-p (string-match "windows" (symbol-name system-type)))
 (defvar macosx-p (string-match "darwin" (symbol-name system-type)))
 (defvar aquamacs-p (featurep 'aquamacs))
 
+;;;; Cosmetics
+
+;; More real estate up top...
 (tool-bar-mode -1)
 
+;; ... and less on the side (line numbers)
+(require 'linum)
+(linum-mode)
+
+;; Making purty colors load properly in all Emacsen
 (add-to-list 'load-path "~/.emacs.d/color-theme")
 (require 'color-theme)
 (setq color-theme-load-all-themes nil)
@@ -13,27 +25,33 @@
 (if (not aquamacs-p) (color-theme-initialize))
 (color-theme-clarity)
 
-(require 'linum)
-(linum-mode)
+;;;; General text editing
 
+;; So I can see what I'm highlighting
 (transient-mark-mode)
 
+;; Because they're under my fingers
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-x\C-k" 'kill-region)
+(global-set-key "\C-c/" 'comment-or-uncomment-region)
 
+;; Auto-completion of file/buffer names
 (require 'ido)
 (ido-mode t)
 
-(load-file "~/.emacs.d/cedet/common/cedet.el")
+;;;; Emacs Code Browser
 
+(load-file "~/.emacs.d/cedet/common/cedet.el")
 (add-to-list 'load-path "~/.emacs.d/ecb")
 (require 'ecb)
-'(ecb-source-path (quote ("~/src")))
+
+;;;; Specific languages
 
 (add-to-list 'load-path "~/.emacs.d/ruby")
-
 (add-to-list 'load-path "~/.emacs.d/rails")
 (require 'rails)
+
+;;;; Duct tape for various platforms
 
 (when macosx-p
   (setq ecb-source-path (quote ("~/src")))
@@ -51,6 +69,8 @@
   (add-hook 'comint-output-filter-functions
             'comint-strip-ctrl-m)
   (server-start))
+
+;;;; The rest
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
