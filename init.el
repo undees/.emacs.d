@@ -39,36 +39,35 @@
 (require 'ido)
 (ido-mode t)
 
-;;;; Emacs Code Browser
+;;;; Fancy features for when we're not in the terminal
+(when window-system
+  ;;;; Specific languages
+  (add-to-list 'load-path "~/.emacs.d/ruby")
+  (add-to-list 'load-path "~/.emacs.d/rails")
+  (require 'rails)
 
-(load-file "~/.emacs.d/cedet/common/cedet.el")
-(add-to-list 'load-path "~/.emacs.d/ecb")
-(require 'ecb)
+  ;;;; Emacs Code Browser
+  (load-file "~/.emacs.d/cedet/common/cedet.el")
+  (add-to-list 'load-path "~/.emacs.d/ecb")
+  (require 'ecb)
 
-;;;; Specific languages
-
-(add-to-list 'load-path "~/.emacs.d/ruby")
-(add-to-list 'load-path "~/.emacs.d/rails")
-(require 'rails)
-
-;;;; Duct tape for various platforms
-
-(when macosx-p
-  (setq ecb-source-path (quote ("~/src")))
-  (when (not aquamacs-p)
-    (setq mac-option-modifier 'meta)
-    (setq mac-command-modifier nil)))
-
-(when mswindows-p
-  (setq ecb-source-path (quote ("e:/src")))
-  (setq rails-ruby-command "c:/ruby/bin/ruby.exe")
-  (setq exec-path (cons "c:/cygwin/bin" exec-path))
-  (setq shell-file-name "bash")
-  (setenv "SHELL" shell-file-name)
-  (setq explicit-shell-file-name shell-file-name)
-  (add-hook 'comint-output-filter-functions
-            'comint-strip-ctrl-m)
-  (server-start))
+  ;;;; Duct tape for various platforms
+  (when macosx-p
+    (setq ecb-source-path (quote ("~/src")))
+    (when (not aquamacs-p)
+      (setq mac-option-modifier 'meta)
+      (setq mac-command-modifier nil)))
+  (when mswindows-p
+    (setq ecb-source-path (quote ("e:/src")))
+    (setq rails-ruby-command "c:/ruby/bin/ruby.exe")
+    (setq exec-path (cons "e:/bin" exec-path))
+    (setq shell-file-name "bash")
+    (setenv "SHELL" shell-file-name)
+    (setenv "PATH" (concat "e:/bin;" (getenv "PATH")))
+    (setq explicit-shell-file-name shell-file-name)
+    (add-hook 'comint-output-filter-functions
+              'comint-strip-ctrl-m)
+    (server-start)))
 
 ;;;; The rest
 
