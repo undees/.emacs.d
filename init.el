@@ -22,7 +22,7 @@
 (require 'color-theme)
 (setq color-theme-load-all-themes nil)
 (setq color-theme-is-global t)
-(if (not aquamacs-p) (color-theme-initialize))
+(eval-after-load "color-theme" (color-theme-initialize))
 (color-theme-clarity)
 
 ;;;; General text editing
