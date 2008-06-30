@@ -40,6 +40,8 @@
 (ido-mode t)
 
 ;; Note-taking and such
+(setq load-path (cons "~/.emacs.d/org/lisp" load-path))
+(require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
@@ -91,6 +93,7 @@
   ;; If there is more than one, they won't work right.
  '(ecb-options-version "2.32")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
+ '(ecb-tar-setup (quote cons))
  '(ecb-tip-of-the-day nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
