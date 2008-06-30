@@ -41,10 +41,18 @@
 
 ;;;; Fancy features for when we're not in the terminal
 (when window-system
+  ;;;; Allow emacsclient to connect to us
+  (server-start)
+
   ;;;; Specific languages
   (add-to-list 'load-path "~/.emacs.d/ruby")
   (add-to-list 'load-path "~/.emacs.d/rails")
   (require 'rails)
+
+  (add-to-list 'load-path "~/.emacs.d/yaml")
+  (require 'yaml-mode)
+  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+  (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
 
   ;;;; Emacs Code Browser
   (load-file "~/.emacs.d/cedet/common/cedet.el")
@@ -66,8 +74,7 @@
     (setenv "PATH" (concat "e:/bin;" (getenv "PATH")))
     (setq explicit-shell-file-name shell-file-name)
     (add-hook 'comint-output-filter-functions
-              'comint-strip-ctrl-m)
-    (server-start)))
+              'comint-strip-ctrl-m)))
 
 ;;;; The rest
 
