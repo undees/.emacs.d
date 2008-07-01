@@ -35,6 +35,9 @@
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-c/" 'comment-or-uncomment-region)
 
+;; A "bettah meta", Yegge-style
+(global-set-key "\C-x\C-m" 'execute-extended-command)
+
 ;; Auto-completion of file/buffer names
 (require 'ido)
 (ido-mode t)
