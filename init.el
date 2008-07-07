@@ -25,6 +25,12 @@
 (eval-after-load "color-theme" (color-theme-initialize))
 (color-theme-clarity)
 
+;; Color customizations
+(custom-set-faces 
+ '(flymake-errline ((((class color)) (:underline "red")))) 
+ '(flymake-warnline ((((class color)) (:underline "yellow")))))
+
+
 ;;;; General text editing
 
 ;; So I can see what I'm highlighting
@@ -55,6 +61,7 @@ is a comment, uncomment."
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-c/" 'comment-or-uncomment-region-or-line)
+(defalias 'qrr 'query-replace-regexp)
 
 ;; A "bettah meta", Yegge-style
 (global-set-key "\C-x\C-m" 'execute-extended-command)
