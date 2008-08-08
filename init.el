@@ -26,8 +26,12 @@
 (color-theme-clarity)
 
 ;; Color customizations
-(custom-set-faces 
- '(flymake-errline ((((class color)) (:underline "red")))) 
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(flymake-errline ((((class color)) (:underline "red"))))
  '(flymake-warnline ((((class color)) (:underline "yellow")))))
 
 
@@ -125,10 +129,5 @@ is a comment, uncomment."
  '(ecb-options-version "2.32")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
  '(ecb-tar-setup (quote cons))
- '(ecb-tip-of-the-day nil))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
+ '(ecb-tip-of-the-day nil)
+ '(org-agenda-files (directory-files "~/org" t "\\.org$")))
