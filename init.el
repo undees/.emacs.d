@@ -89,6 +89,13 @@ is a comment, uncomment."
 (require 'ido)
 (ido-mode t)
 
+;; nXML mode
+(add-hook 'nxml-mode-hook
+	  (lambda ()
+	    (define-key nxml-mode-map
+	       "\C-c\C-c"
+	       'nxml-complete)))
+
 ;; Note-taking and such
 (setq load-path (cons "~/.emacs.d/org/lisp" load-path))
 (require 'org-install)
