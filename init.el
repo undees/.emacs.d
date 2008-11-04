@@ -17,6 +17,9 @@
 (require 'linum)
 (linum-mode)
 
+;; Sensible tabs
+(setq-default indent-tabs-mode nil)
+
 ;; Making purty colors load properly in all Emacsen
 (add-to-list 'load-path "~/.emacs.d/color-theme")
 (require 'color-theme)
