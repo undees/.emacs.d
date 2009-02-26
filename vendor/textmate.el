@@ -75,7 +75,7 @@
 (defvar textmate-mode-map (make-sparse-keymap))
 (defvar *textmate-project-root* nil)
 (defvar *textmate-project-files* '())
-(defvar *textmate-exclude-extensions* '(".hg" ".git" ".svn"))
+(defvar *textmate-exclude-extensions* '("\\.hg" "\\.git" "\\.svn"))
 
 ;;; Bindings
 
