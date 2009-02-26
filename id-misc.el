@@ -25,5 +25,12 @@
 
 (recentf-mode 1)
 
+(require 'whitespace)
+
+(require 'yaml-mode)
+
+(require 'textmate)
+(textmate-mode)
+
 (provide 'id-misc)
 ;;; id-misc.el ends here
