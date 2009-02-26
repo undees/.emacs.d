@@ -53,6 +53,8 @@
 
 ;;; Minor mode
 
+(require 'traverselisp)
+
 (defvar textmate-use-file-cache t
   "* Should `textmate-goto-file' keep a local cache of files?")
 
@@ -73,8 +75,7 @@
 (defvar textmate-mode-map (make-sparse-keymap))
 (defvar *textmate-project-root* nil)
 (defvar *textmate-project-files* '())
-(defvar *textmate-gf-exclude*
-  "/\\.|vendor|fixtures|tmp|log|build|\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|UnitTesting")
+(defvar *textmate-exclude-extensions* '(".hg" ".git" ".svn"))
 
 ;;; Bindings
 
@@ -202,15 +203,8 @@ is a comment, uncomment."
 (defun textmate-project-files (root)
   (mapcar
    (lambda (path)
-     (replace-regexp-in-string (concat "\\$" *textmate-project-root*) "" path))
-   (split-string
-    (shell-command-to-string
-     (concat
-      "find "
-      root
-      " -type f  | grep -vE '"
-      *textmate-gf-exclude*
-      "'")) "[\r\n]+" t)))
+     (replace-regexp-in-string (concat "^" *textmate-project-root*) "" path))
+   (traverse-list-files-in-tree root *textmate-exclude-extensions*)))
 
 (defun textmate-cache-project-files (root)
   (let ((files (textmate-project-files root)))
