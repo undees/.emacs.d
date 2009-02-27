@@ -5,11 +5,11 @@
 ;; Because they're under my fingers
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-x\C-k" 'kill-region)
-(global-set-key "\C-c/" 'comment-or-uncomment-region-or-line)
 (defalias 'qrr 'query-replace-regexp)
 
 ;; A "bettah meta", Yegge-style
 (global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-unset-key "\C-xm") ;; keyboards are unreliable
 
 ;; nXML tag completion
 (add-hook 'nxml-mode-hook
@@ -22,7 +22,6 @@
 (global-set-key "\C-x\C-i" 'ido-imenu)
 
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
-(global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
 (global-set-key (kbd "C-x C-p") 'find-file-at-point)
 (global-set-key (kbd "C-c y") 'bury-buffer)
