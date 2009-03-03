@@ -18,6 +18,12 @@
 	       "\C-c\C-c"
 	       'nxml-complete)))
 
+;; Jump around windows
+(global-set-key (kbd "C-c <up>") 'windmove-up)
+(global-set-key (kbd "C-c <down>") 'windmove-down)
+(global-set-key (kbd "C-c <left>") 'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key "\C-x\C-i" 'ido-imenu)
 
