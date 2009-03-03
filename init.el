@@ -33,6 +33,7 @@
 
 ;; More real estate up top...
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; Sensible tabs
 (setq-default indent-tabs-mode nil)
