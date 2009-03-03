@@ -18,10 +18,11 @@
 
 
 ;; Purty colors
-(require 'color-theme)
-(load-file "~/.emacs.d/vendor/blackboard.el")
-(setq color-theme-is-global t)
-(color-theme-blackboard)
+(when window-system
+  (require 'color-theme)
+  (load-file "~/.emacs.d/vendor/blackboard.el")
+  (setq color-theme-is-global t)
+  (color-theme-blackboard))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
