@@ -23,6 +23,8 @@
 (setq color-theme-is-global t)
 (color-theme-blackboard)
 
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 (recentf-mode 1)
 
 (require 'whitespace)
