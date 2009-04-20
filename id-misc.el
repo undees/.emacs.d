@@ -30,6 +30,8 @@
 
 (require 'whitespace)
 
+(setq-default show-trailing-whitespace t)
+
 (require 'yaml-mode)
 
 (require 'textmate)

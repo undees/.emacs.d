@@ -41,7 +41,7 @@
 ;;;; General text editing
 
 ;; So I can see what I'm highlighting
-(transient-mark-mode)
+(setq-default transient-mark-mode t)
 
 ;; Auto-completion of file/buffer names
 (require 'ido)
@@ -58,6 +58,7 @@
   (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
 
   (eval-after-load 'ruby-mode
     '(progn
