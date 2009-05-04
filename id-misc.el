@@ -16,6 +16,14 @@
 (setq auto-save-file-name-transforms
       `((".*" ,user-temporary-file-directory t)))
 
+;; Hooks
+(add-hook 'find-file-hook 'id-choose-header-mode)
+(add-hook 'ruby-mode-hook 'coding-hook)
+(add-hook 'c-mode-common-hook 'coding-hook)
+(add-hook 'objc-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode t)
+            (setq tab-width 4)))
 
 ;; Purty colors
 (when window-system
