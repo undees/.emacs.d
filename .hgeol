@@ -1,0 +1,5 @@
+[patterns]
+re:^\.hgeol$ = native
+re:.*\.el$ = native
+re:.*\.txt$ = native
+re:^vendor/snippets/ = native
