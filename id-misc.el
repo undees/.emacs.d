@@ -40,10 +40,5 @@
 
 (setq-default show-trailing-whitespace t)
 
-(require 'yaml-mode)
-
-(require 'textmate)
-(textmate-mode)
-
 (provide 'id-misc)
 ;;; id-misc.el ends here

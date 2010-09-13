@@ -20,6 +20,36 @@
 (require 'package)
 (package-initialize)
 
+;; Auto-completion of file/buffer names
+(require 'ido)
+(ido-mode t)
+
+;; Install a few packages on first launch;
+;; see http://github.com/mig/emacs-rails-kit/blob/master/emacs-elpa.el
+(defvar auto-install-packages (list
+                               'ruby-mode
+                               'inf-ruby
+                               'ruby-compilation
+                               'yaml-mode
+                               'textmate
+                               'yasnippet-bundle)
+  "Libraries that should be installed by default.")
+
+(defun starter-kit-elpa-install ()
+  "Install all auto-install packages that aren't installed."
+  (interactive)
+  (dolist (package auto-install-packages)
+    (unless (or (member package package-activated-list)
+                (functionp package))
+      (message "Installing %s" (symbol-name package))
+      (package-install package))))
+
+(unless package-archive-contents (package-refresh-contents))
+(starter-kit-elpa-install)
+
+;; Continue with the rest of the initialization,
+;; now that all the libraries are ready
+
 (require 'id-defuns)
 (require 'id-bindings)
 (require 'id-misc)
@@ -42,10 +72,6 @@
 
 ;; So I can see what I'm highlighting
 (setq-default transient-mark-mode t)
-
-;; Auto-completion of file/buffer names
-(require 'ido)
-(ido-mode t)
 
 ;;;; Fancy features for when we're not in the terminal
 (when window-system
