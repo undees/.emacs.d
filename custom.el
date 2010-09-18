@@ -16,5 +16,4 @@
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
  '(ecb-tar-setup (quote ("/bin/tar" . other)))
  '(ecb-tip-of-the-day nil)
- '(inhibit-startup-screen t)
- '(org-agenda-files (directory-files "~/org" t "\\.org$")))
+ '(inhibit-startup-screen t))
