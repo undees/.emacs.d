@@ -63,15 +63,25 @@
 
 ;; More real estate up top...
 (tool-bar-mode -1)
-(menu-bar-mode -1)
+(if (not (eq system-type 'darwin))
+    (menu-bar-mode -1)
+)
 
 ;; Sensible tabs
 (setq-default indent-tabs-mode nil)
+(setq c-default-style "stroustrup"
+      c-basic-offset 4)
 
 ;;;; General text editing
 
 ;; So I can see what I'm highlighting
 (setq-default transient-mark-mode t)
+
+;; Handy shortcuts
+(textmate-mode t)
+
+;; Column numbers
+(column-number-mode t)
 
 ;;;; Fancy features for when we're not in the terminal
 (when window-system
@@ -82,6 +92,7 @@
   (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
   (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
@@ -110,6 +121,7 @@
 
         (push '(".+\\.rb$" flymake-ruby-init) flymake-allowed-file-name-masks)
         (push '("Rakefile$" flymake-ruby-init) flymake-allowed-file-name-masks)
+        (push '("Gemfile$" flymake-ruby-init) flymake-allowed-file-name-masks)
 
         (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3)
               flymake-err-line-patterns)

@@ -32,12 +32,14 @@
   (setq color-theme-is-global t)
   (color-theme-blackboard))
 
+;; Tired of typing "yes" and "no" all the time
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; Remember recent files
 (recentf-mode 1)
 
+;; Handle whitespace sanely
 (require 'whitespace)
-
 (setq-default show-trailing-whitespace t)
 
 (provide 'id-misc)
