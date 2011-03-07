@@ -5,8 +5,6 @@
 (defun coding-hook ()
   "Enable things that are convenient across all coding buffers."
   (set (make-local-variable 'comment-auto-fill-only-comments) t)
-  (make-local-variable 'column-number-mode)
-  (column-number-mode t)
   (auto-fill-mode) ;; in comments only
   (if window-system (hl-line-mode t)))
 
