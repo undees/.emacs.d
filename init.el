@@ -96,6 +96,7 @@
   (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
+  (add-to-list 'auto-mode-alist '("\\.org.txt$" . org-mode))
 
   (eval-after-load 'ruby-mode
     '(progn
