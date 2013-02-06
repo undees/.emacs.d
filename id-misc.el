@@ -25,10 +25,11 @@
             (setq indent-tabs-mode t)
             (setq tab-width 4)))
 
+
 ;; Purty colors
 (when window-system
   (require 'color-theme)
-  (load-file "~/.emacs.d/vendor/blackboard.el")
+  (require 'color-theme-blackboard)
   (setq color-theme-is-global t)
   (color-theme-blackboard))
 
