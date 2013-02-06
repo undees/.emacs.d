@@ -35,10 +35,13 @@
                                'color-theme-blackboard)
   "Libraries that should be installed by default.")
 
+(package-initialize)
+(unless package-archive-contents (package-refresh-contents))
+
 (mapc
  (lambda (package)
-   (or (package-installed-p package)
-       (package-install package)))
+   (when (not (require package nil t))
+     (package-install package)))
  auto-install-packages)
 
 ;; Continue with the rest of the initialization,
