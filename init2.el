@@ -26,13 +26,16 @@
 ;; how-to-automatically-install-emacs-packages-
 ;; by-specifying-a-list-of-package-name
 (defvar auto-install-packages (list
-                               'ruby-mode
+                               'color-theme-blackboard
                                'inf-ruby
+                               'markdown-mode
+                               'ruby-mode
+                               'ruby-electric
                                'ruby-compilation
-                               'yaml-mode
                                'textmate
-                               'yasnippet-bundle
-                               'color-theme-blackboard)
+                               'whitespace
+                               'yaml-mode
+                               'yasnippet)
   "Libraries that should be installed by default.")
 
 (package-initialize)
@@ -53,10 +56,6 @@
 
 (regen-autoloads)
 (load custom-file 'noerror)
-
-; Snippets
-(yas/initialize)
-(yas/load-directory (concat dotfiles-dir "/vendor/snippets"))
 
 ;; More real estate up top...
 (tool-bar-mode -1)
@@ -93,7 +92,8 @@
   (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
-  (add-to-list 'auto-mode-alist '("\\.org.txt$" . org-mode))
+  (add-to-list 'auto-mode-alist '("\\.pro$" . makefile-mode))
+  (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
   (eval-after-load 'ruby-mode
     '(progn
