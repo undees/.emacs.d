@@ -79,6 +79,9 @@
 ;; Column numbers
 (column-number-mode t)
 
+;; Snippets
+(yas-global-mode 1)
+
 ;;;; Fancy features for when we're not in the terminal
 (when window-system
   ;;;; Allow emacsclient to connect to us
