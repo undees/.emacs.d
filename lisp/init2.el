@@ -1,14 +1,11 @@
-;;; init.el --- Where all the magic begins
+;;; init2.el --- Where all the magic begins
 ;;
 ;; My personal quirks, encoded as Lisp
 ;; Thanks to the Emacs Starter Kit
 
 ;; Find it!
 
-(setq dotfiles-dir (file-name-directory
-                    (or (buffer-file-name) load-file-name)))
-
-(add-to-list 'load-path dotfiles-dir)
+(add-to-list 'load-path (concat dotfiles-dir "lisp"))
 (add-to-list 'load-path (concat dotfiles-dir "vendor"))
 
 (setq autoload-file (concat dotfiles-dir "loaddefs.el"))

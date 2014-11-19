@@ -9,7 +9,10 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
-(add-hook 'after-init-hook #'(lambda () (load "~/.emacs.d/init2.el")))
+(setq dotfiles-dir (file-name-directory
+                    (or (buffer-file-name) load-file-name)))
+
+(add-hook 'after-init-hook #'(lambda () (load "~/.emacs.d/lisp/init2.el")))
 
 (provide 'init)
 ;;; init.el ends here
