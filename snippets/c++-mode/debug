@@ -1,0 +1,4 @@
+# name: debug
+# key: debug
+# --
+cout << __FILE__ << ":" << __LINE__ << ":" << __FUNCTION__ << endl;

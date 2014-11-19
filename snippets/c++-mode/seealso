@@ -1,0 +1,4 @@
+# name: seealso
+# key: seeal
+# --
+/// <seealso cref="$1"/>
