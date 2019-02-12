@@ -9,3 +9,4 @@ server/server
 elpa/*
 loaddefs.el
 local/*
+recentf
