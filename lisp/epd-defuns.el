@@ -1,4 +1,4 @@
-;;; id-defuns.el --- Things that don't fit anywhere else
+;;; epd-defuns.el --- Things that don't fit anywhere else
 ;;
 ;; Thanks to the Emacs Starter Kit
 
@@ -59,7 +59,7 @@
       (find-file file))))
 
 ; http://www.bretthutley.com/emacs/opening-a-cobjective-cc-header-file-in-emacs
-(defun id-choose-header-mode ()
+(defun epd-choose-header-mode ()
   "Decide whether a .h file is C, C++, or Objective-C"
   (interactive)
   (if (string-equal (substring (buffer-file-name) -2) ".h")
@@ -74,5 +74,5 @@
             (if (file-exists-p dot-cpp-file)
                 (c++-mode)))))))
 
-(provide 'id-defuns)
-;;; id-defuns.el ends here
+(provide 'epd-defuns)
+;;; epd-defuns.el ends here

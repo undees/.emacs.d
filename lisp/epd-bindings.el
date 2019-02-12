@@ -1,4 +1,4 @@
-;;; id-bindings.el --- Things that don't fit anywhere else
+;;; epd-bindings.el --- Things that don't fit anywhere else
 ;;
 ;; Thanks to the Emacs Starter Kit
 
@@ -48,5 +48,5 @@
       (update-directory-autoloads autoload-dir)))
   (load autoload-file))
 
-(provide 'id-bindings)
-;;; id-bindings.el ends here
+(provide 'epd-bindings)
+;;; epd-bindings.el ends here

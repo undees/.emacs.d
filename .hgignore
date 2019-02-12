@@ -10,3 +10,4 @@ elpa/*
 loaddefs.el
 local/*
 recentf
+ido.last
