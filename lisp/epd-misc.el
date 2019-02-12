@@ -1,4 +1,4 @@
-;;; id-misc.el --- Things that don't fit anywhere else
+;;; epd-misc.el --- Things that don't fit anywhere else
 ;;
 ;; Thanks to the Emacs Starter Kit
 
@@ -18,7 +18,7 @@
 (setq create-lockfiles nil)
 
 ;; Hooks
-(add-hook 'find-file-hook 'id-choose-header-mode)
+(add-hook 'find-file-hook 'epd-choose-header-mode)
 (add-hook 'ruby-mode-hook 'coding-hook)
 (add-hook 'c-mode-common-hook 'coding-hook)
 (add-hook 'objc-mode-hook
@@ -48,5 +48,5 @@
 ;; Line numbers are a good thing
 (global-display-line-numbers-mode)
 
-(provide 'id-misc)
-;;; id-misc.el ends here
+(provide 'epd-misc)
+;;; epd-misc.el ends here

@@ -46,10 +46,10 @@
 ;; Continue with the rest of the initialization,
 ;; now that all the libraries are ready
 
-(load-file "~/.emacs.d/lisp/id-colors.el")
-(require 'id-defuns)
-(require 'id-bindings)
-(require 'id-misc)
+(load-file "~/.emacs.d/lisp/epd-colors.el")
+(require 'epd-defuns)
+(require 'epd-bindings)
+(require 'epd-misc)
 
 (regen-autoloads)
 (load custom-file 'noerror)
