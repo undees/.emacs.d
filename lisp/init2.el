@@ -23,7 +23,6 @@
 ;; how-to-automatically-install-emacs-packages-
 ;; by-specifying-a-list-of-package-name
 (defvar auto-install-packages (list
-                               'color-theme-blackboard
                                'inf-ruby
                                'markdown-mode
                                'ruby-mode
@@ -47,6 +46,7 @@
 ;; Continue with the rest of the initialization,
 ;; now that all the libraries are ready
 
+(load-file "~/.emacs.d/lisp/id-colors.el")
 (require 'id-defuns)
 (require 'id-bindings)
 (require 'id-misc)
@@ -56,14 +56,15 @@
 
 ;; More real estate up top...
 (tool-bar-mode -1)
-(if (not (eq system-type 'darwin))
-    (menu-bar-mode -1)
-)
+(menu-bar-mode -1)
 
 ;; Sensible tabs
 (setq-default indent-tabs-mode nil)
 (setq c-default-style "stroustrup"
       c-basic-offset 4)
+
+;; Sensible double-click behavior
+(setq ns-pop-up-frames nil)
 
 ;;;; General text editing
 
@@ -72,6 +73,8 @@
 
 ;; Handy shortcuts
 (textmate-mode t)
+(global-set-key (kbd "A-/") 'comment-or-uncomment-region-or-line)
+(global-set-key (kbd "A-t") 'textmate-goto-file)
 
 ;; Column numbers
 (column-number-mode t)
@@ -79,8 +82,22 @@
 ;; Snippets
 (yas-global-mode 1)
 
+;; Honor Bash $PATH
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+;; Resize text
+(global-set-key (kbd "C-M-=") 'default-text-scale-increase)
+(global-set-key (kbd "C-M--") 'default-text-scale-decrease)
+
 ;;;; Fancy features for when we're not in the terminal
 (when window-system
+  (if (eq system-type 'darwin)
+      (menu-bar-mode t))
+
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro-16"))
+  (set-face-attribute 'default t :font "Source Code Pro-16")
+
   ;;;; Allow emacsclient to connect to us
   (server-start)
 

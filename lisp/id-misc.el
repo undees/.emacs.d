@@ -15,6 +15,7 @@
       (concat user-temporary-file-directory ".auto-saves-"))
 (setq auto-save-file-name-transforms
       `((".*" ,user-temporary-file-directory t)))
+(setq create-lockfiles nil)
 
 ;; Hooks
 (add-hook 'find-file-hook 'id-choose-header-mode)
@@ -25,13 +26,11 @@
             (setq indent-tabs-mode t)
             (setq tab-width 4)))
 
-
 ;; Purty colors
-(when window-system
-  (require 'color-theme)
-  (require 'color-theme-blackboard)
-  (setq color-theme-is-global t)
-  (color-theme-blackboard))
+(require 'color-theme)
+(setq color-theme-is-global t)
+(color-theme-initialize)
+(color-theme-charcoal-black)
 
 ;; Tired of typing "yes" and "no" all the time
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -42,6 +41,12 @@
 ;; Handle whitespace sanely
 (require 'whitespace)
 (setq-default show-trailing-whitespace t)
+
+;; More vertical space
+(tool-bar-mode -1)
+
+;; Line numbers are a good thing
+(global-display-line-numbers-mode)
 
 (provide 'id-misc)
 ;;; id-misc.el ends here
